@@ -45,7 +45,19 @@ public class MainTests {
         shed.sortEventsByTime();
         assertEquals(1710,shed.getLastElement().getTime());
         assertEquals(1200,shed.getFirstElement().getTime());
-    }    
+    } 
+    
+    @Test
+    public void testEventsByTime(){
+        Shedule shed = new Shedule();
+        Event event = new Event("Нытва", "Нытвы", 1115,13);
+        shed.addEvent(event);
+        event = new Event("Майский", "Майского", 1120, 10);
+        shed.addEvent(event);      
+        assertEquals(false, shed.checkShedule(1110).isEmptyEvent());
+        assertEquals(false, shed.checkShedule(1115).isEmptyEvent());
+        assertEquals(true, shed.checkShedule(1120).isEmptyEvent());
+    }
     
     
     

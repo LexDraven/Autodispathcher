@@ -17,9 +17,7 @@ public class AutobusDispatcher {
         event = new Event("Краснокамск", "Краснокамска", 1155,1);
         shed.addEvent(event);
         Dispathcher disp = new Dispathcher(new TemporarySpeaker(),shed);
-        disp.checkShedule();  
-
-
+        disp.checkShedule();
     }
     
 }

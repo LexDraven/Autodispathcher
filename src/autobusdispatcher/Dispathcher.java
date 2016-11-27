@@ -68,6 +68,7 @@ public class Dispathcher {
          }
         }
         timer.stop();
+        shedule.print();
     }
     
 

@@ -38,7 +38,7 @@ public class EventsTimer implements Runnable{
                 curTime+=5;
                 String time = Integer.toString(curTime);
                 String min = time.substring(2);
-                if (Integer.parseInt(min)>55){
+                if (Integer.parseInt(min)>=60){
                     String hour = time.substring(0, 2);
                     int i = Integer.parseInt(hour);
                     i++;

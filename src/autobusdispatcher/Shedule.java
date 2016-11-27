@@ -1,6 +1,5 @@
 package autobusdispatcher;
 
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -51,16 +50,13 @@ public class Shedule {
         return events.getFirst();
     }
     
-    public LinkedList<Event> getListOfEvents(){
-        return events;
-    }
-    
     public boolean isEmpty(){
         return events.isEmpty();
     }
     
     public Event checkShedule(int time){
         if (events.isEmpty()) {
+            isSheduleOver = true;
             return new EmptyEvent();
         }
         Iterator <Event> iterator = events.iterator();
@@ -68,7 +64,7 @@ public class Shedule {
         while (iterator.hasNext()){
             ev =iterator.next();
             int eventTime = ev.getTime();            
-            if (eventTime==time+5) {
+            if ((eventTime==time+5) || ((Integer.toString(eventTime).endsWith("00"))&(eventTime==time+45))) {
                 iterator.remove();
                 return ev;
             }   
@@ -76,7 +72,7 @@ public class Shedule {
                 max=eventTime;
             }
         }
-        isSheduleOver = time>max;
+        isSheduleOver = time > max;
         return new EmptyEvent();
     }
 

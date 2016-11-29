@@ -58,13 +58,9 @@ public class Dispathcher {
          if (time!= currentTime) {
              time = currentTime;
              while (true){
-                 Event newEventToSpeak = shedule.checkShedule(time);
-                 if (!newEventToSpeak.isEmptyEvent()){
-                   speaker.speak(newEventToSpeak);
-                 }
-                 else {
-                     break;
-                 }                
+                Event newEventToSpeak = shedule.checkShedule(time);
+                if (newEventToSpeak.isEmptyEvent()) break;        
+                speaker.speak(newEventToSpeak);
              }            
          }
         }

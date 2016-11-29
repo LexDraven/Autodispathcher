@@ -12,10 +12,10 @@ public class MainTests {
     
     @Test
     public void eventTest(){
-        Event event = new Event("name", "message", 2357,1);
+        Event event = new Event("name", "message", "23-57",1);
         assertEquals("name", event.getName());
-        assertEquals(0, event.getTime());
-        event = new Event("name1", "message1", 2355,1);
+        assertEquals(2357, event.getTime());
+        event = new Event("name1", "message1", "23-55",1);
         assertEquals("name1", event.getName());
         assertEquals(2355, event.getTime());
         assertEquals(false,event.isEmptyEvent());
@@ -32,15 +32,15 @@ public class MainTests {
     @Test
     public void sheduleTest(){
         Shedule shed = new Shedule();
-        Event event = new Event("Нытва", "автобус до Нытвы", 1700,1);
+        Event event = new Event("Нытва", "автобус до Нытвы", "17-00",1);
         shed.addEvent(event);
-        event = new Event("Майский", "автобус до Майского", 1710,1);
+        event = new Event("Майский", "автобус до Майского", "17-10",1);
         shed.addEvent(event);
-        event = new Event("Оса", "автобус до Осы", 1200,1);
+        event = new Event("Оса", "автобус до Осы", "12-00",1);
         shed.addEvent(event);
-        event = new Event("Чернушка", "автобус до Чернушки", 1330,1);
+        event = new Event("Чернушка", "автобус до Чернушки", "13-30",1);
         shed.addEvent(event);
-        event = new Event("Краснокамск", "автобус до Краснокамска", 1700,1);
+        event = new Event("Краснокамск", "автобус до Краснокамска", "17-00",1);
         shed.addEvent(event);
         shed.sortEventsByTime();
         assertEquals(1710,shed.getLastElement().getTime());
@@ -50,13 +50,23 @@ public class MainTests {
     @Test
     public void testEventsByTime(){
         Shedule shed = new Shedule();
-        Event event = new Event("Нытва", "Нытвы", 1115,13);
+        Event event = new Event("Нытва", "Нытвы", "11-15",13);
         shed.addEvent(event);
-        event = new Event("Майский", "Майского", 1120, 10);
+        event = new Event("Майский", "Майского", "11-20", 10);
         shed.addEvent(event);      
         assertEquals(false, shed.checkShedule(1110).isEmptyEvent());
         assertEquals(false, shed.checkShedule(1115).isEmptyEvent());
         assertEquals(true, shed.checkShedule(1120).isEmptyEvent());
+    }
+    
+    @Test
+    public void testTimeBefore(){
+        Event event = new Event("Нытва", "Нытвы", "11-15",13);
+        assertEquals(1110, event.getTimeSomeMinutesBefore(5));
+        assertEquals(1112, event.getTimeSomeMinutesBefore(3));
+        assertEquals(1100, event.getTimeSomeMinutesBefore(15));
+        event = new Event("Нытва", "Нытвы", "12-00",13);
+        assertEquals(1155, event.getTimeSomeMinutesBefore(5));
     }
     
     

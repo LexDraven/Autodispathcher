@@ -1,5 +1,6 @@
 package autobusdispatcher;
 
+import autobusdispatcher.events.Event;
 import autobusdispatcher.speakers.Speaker;
 import autobusdispatcher.speakers.TemporarySpeaker;
 

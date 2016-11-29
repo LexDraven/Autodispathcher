@@ -1,5 +1,8 @@
 package autobusdispatcher;
 
+import autobusdispatcher.events.EmptyEvent;
+import autobusdispatcher.events.Event;
+import autobusdispatcher.events.EventComparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 

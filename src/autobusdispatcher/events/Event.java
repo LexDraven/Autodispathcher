@@ -4,7 +4,6 @@ package autobusdispatcher.events;
 public class Event {
     private String name;
     private String message;
-    private String time;
     private int platform;
     private int hour,min;
 
@@ -50,7 +49,6 @@ public class Event {
         if (min>59 || min<0) {
             min=0;
         }
-        this.time=time;
     }
     
     public int getTimeSomeMinutesBefore(int minutes){
@@ -77,10 +75,4 @@ public class Event {
     public boolean isEmptyEvent(){
         return false;
     }
-    
-    
-    
-    
-    
-
 }

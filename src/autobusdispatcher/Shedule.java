@@ -63,8 +63,8 @@ public class Shedule {
         Event ev=null; int max=0;
         while (iterator.hasNext()){
             ev =iterator.next();
-            int eventTime = ev.getTime();            
-            if ((eventTime==time+5) || ((Integer.toString(eventTime).endsWith("00"))&(eventTime==time+45))) {
+            int eventTime = ev.getTimeSomeMinutesBefore(5);            
+            if (eventTime==time) {
                 iterator.remove();
                 return ev;
             }   

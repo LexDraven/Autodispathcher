@@ -1,6 +1,6 @@
 package autobusdispatcher.speakers;
 
-import autobusdispatcher.Event;
+import autobusdispatcher.events.Event;
 
 
 public class TemporarySpeaker implements Speaker {

@@ -1,6 +1,6 @@
 package autobusdispatcher.speakers;
 
-import autobusdispatcher.Event;
+import autobusdispatcher.events.Event;
 
 public interface Speaker {
     public void speak(String message); 

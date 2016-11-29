@@ -1,6 +1,6 @@
 
-import autobusdispatcher.EmptyEvent;
-import autobusdispatcher.Event;
+import autobusdispatcher.events.EmptyEvent;
+import autobusdispatcher.events.Event;
 import autobusdispatcher.Shedule;
 import org.junit.Test;
 import static org.junit.Assert.*;
